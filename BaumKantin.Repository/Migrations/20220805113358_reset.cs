@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BaumKantin.Repository.Migrations
 {
-    public partial class initial : Migration
+    public partial class reset : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,9 +33,9 @@ namespace BaumKantin.Repository.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IdentityId = table.Column<int>(type: "int", nullable: true),
                     UserTypeEnum = table.Column<byte>(type: "tinyint", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     RoomId = table.Column<int>(type: "int", nullable: true),
                     ImageId = table.Column<int>(type: "int", nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -73,10 +73,58 @@ namespace BaumKantin.Repository.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Customers",
+                columns: new[] { "Id", "CreateDate", "IdentityId", "ImageId", "Name", "Phone", "RoomId", "Surname", "UpdateDate", "UserTypeEnum" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 8, "Ahmet", "8564528", null, "Yalnız", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (byte)1 },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 5, "Ali", "9564875", null, "Sucu", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (byte)2 },
+                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 2, "Burcu", "2536984", null, "Bilir", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (byte)0 },
+                    { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 3, "Buğlem", "2056984", null, "Yalın", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (byte)1 },
+                    { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 1, "Ekrem", "6542514", null, "Ateş", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (byte)2 },
+                    { 6, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 4, "Ayça", "6852574", null, "Renkli", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (byte)2 }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_Id",
+                table: "Customers",
+                column: "Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_IdentityId",
+                table: "Customers",
+                column: "IdentityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_ImageId",
+                table: "Customers",
+                column: "ImageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_Name",
+                table: "Customers",
+                column: "Name");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_Phone",
+                table: "Customers",
+                column: "Phone");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_RoomId",
                 table: "Customers",
                 column: "RoomId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_Surname",
+                table: "Customers",
+                column: "Surname");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_UserTypeEnum",
+                table: "Customers",
+                column: "UserTypeEnum");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Images_CustomerId",

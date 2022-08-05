@@ -12,8 +12,6 @@ namespace BaumKantin.Repository
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-
-
         }
 
         public DbSet<Customer> Customers { get; set; }
@@ -26,6 +24,30 @@ namespace BaumKantin.Repository
             builder.ApplyConfiguration(new CustomerConfiguraitons());
             builder.ApplyConfiguration(new RoomConfigurations());
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            builder.Entity<Customer>(entity =>
+            {
+                entity.HasIndex(e => e.Id);
+
+                entity.HasIndex(e => e.Name);
+
+                entity.HasIndex(e => e.Surname);
+
+                entity.HasIndex(e => e.Phone);
+
+                entity.HasIndex(e => e.IdentityId);
+
+                entity.HasIndex(e => e.ImageId);
+
+                entity.HasIndex(e => e.UserTypeEnum);
+
+            });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 1, Name = "Ahmet", Surname = "Yalnız", Phone = "8564528", IdentityId=1, ImageId=8, UserTypeEnum= UserType.Intern });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 2, Name = "Ali", Surname = "Sucu", Phone = "9564875", IdentityId=2, ImageId=5, UserTypeEnum= UserType.Worker });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 3, Name = "Burcu", Surname = "Bilir", Phone = "2536984", IdentityId=3, ImageId=2, UserTypeEnum= UserType.Admin });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 4, Name = "Buğlem", Surname = "Yalın", Phone = "2056984", IdentityId=4, ImageId=3, UserTypeEnum= UserType.Intern });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 5, Name = "Ekrem", Surname = "Ateş", Phone = "6542514", IdentityId=5, ImageId=1, UserTypeEnum= UserType.Worker });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 6, Name = "Ayça", Surname = "Renkli", Phone = "6852574", IdentityId=6, ImageId=4, UserTypeEnum= UserType.Worker });
+
             base.OnModelCreating(builder);
         }
         public override int SaveChanges()

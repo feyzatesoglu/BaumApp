@@ -41,18 +41,18 @@ namespace BaumKantin.Repository.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("RoomId")
                         .HasColumnType("int");
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -62,9 +62,97 @@ namespace BaumKantin.Repository.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Id");
+
+                    b.HasIndex("IdentityId");
+
+                    b.HasIndex("ImageId");
+
+                    b.HasIndex("Name");
+
+                    b.HasIndex("Phone");
+
                     b.HasIndex("RoomId");
 
+                    b.HasIndex("Surname");
+
+                    b.HasIndex("UserTypeEnum");
+
                     b.ToTable("Customers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdentityId = 1,
+                            ImageId = 8,
+                            Name = "Ahmet",
+                            Phone = "8564528",
+                            Surname = "Yalnız",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserTypeEnum = (byte)1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdentityId = 2,
+                            ImageId = 5,
+                            Name = "Ali",
+                            Phone = "9564875",
+                            Surname = "Sucu",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserTypeEnum = (byte)2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdentityId = 3,
+                            ImageId = 2,
+                            Name = "Burcu",
+                            Phone = "2536984",
+                            Surname = "Bilir",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserTypeEnum = (byte)0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdentityId = 4,
+                            ImageId = 3,
+                            Name = "Buğlem",
+                            Phone = "2056984",
+                            Surname = "Yalın",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserTypeEnum = (byte)1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdentityId = 5,
+                            ImageId = 1,
+                            Name = "Ekrem",
+                            Phone = "6542514",
+                            Surname = "Ateş",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserTypeEnum = (byte)2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdentityId = 6,
+                            ImageId = 4,
+                            Name = "Ayça",
+                            Phone = "6852574",
+                            Surname = "Renkli",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserTypeEnum = (byte)2
+                        });
                 });
 
             modelBuilder.Entity("BaumKantin.Core.Models.ImageModel", b =>
