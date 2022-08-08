@@ -29,7 +29,7 @@ namespace BaumKantin.Core
         public string Phone { get; set; }
 
         public virtual Room? Room  { get; set; }
-        
+
         public int? RoomId  { get; set; }
 
         public virtual ImageModel? ImageModel  { get; set; }

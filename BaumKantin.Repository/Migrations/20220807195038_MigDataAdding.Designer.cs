@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaumKantin.Repository.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220805113358_reset")]
-    partial class reset
+    [Migration("20220807195038_MigDataAdding")]
+    partial class MigDataAdding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,9 +89,9 @@ namespace BaumKantin.Repository.Migrations
                             CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IdentityId = 1,
                             ImageId = 8,
-                            Name = "Ahmet",
+                            Name = "Harun",
                             Phone = "8564528",
-                            Surname = "Yalnız",
+                            Surname = "Bozacı",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)1
                         },
@@ -101,11 +101,11 @@ namespace BaumKantin.Repository.Migrations
                             CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IdentityId = 2,
                             ImageId = 5,
-                            Name = "Ali",
+                            Name = "Sude",
                             Phone = "9564875",
-                            Surname = "Sucu",
+                            Surname = "Akkaya",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserTypeEnum = (byte)2
+                            UserTypeEnum = (byte)1
                         },
                         new
                         {
@@ -113,11 +113,11 @@ namespace BaumKantin.Repository.Migrations
                             CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IdentityId = 3,
                             ImageId = 2,
-                            Name = "Burcu",
+                            Name = "Feyza",
                             Phone = "2536984",
-                            Surname = "Bilir",
+                            Surname = "Ateşoğlu",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserTypeEnum = (byte)0
+                            UserTypeEnum = (byte)1
                         },
                         new
                         {
@@ -125,11 +125,11 @@ namespace BaumKantin.Repository.Migrations
                             CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IdentityId = 4,
                             ImageId = 3,
-                            Name = "Buğlem",
+                            Name = "Emre",
                             Phone = "2056984",
-                            Surname = "Yalın",
+                            Surname = "Işın",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserTypeEnum = (byte)1
+                            UserTypeEnum = (byte)0
                         },
                         new
                         {
@@ -152,6 +152,30 @@ namespace BaumKantin.Repository.Migrations
                             Name = "Ayça",
                             Phone = "6852574",
                             Surname = "Renkli",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserTypeEnum = (byte)2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdentityId = 7,
+                            ImageId = 12,
+                            Name = "Ahmet",
+                            Phone = "6852574",
+                            Surname = "Aydın",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserTypeEnum = (byte)2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdentityId = 8,
+                            ImageId = 14,
+                            Name = "Kerem",
+                            Phone = "6852574",
+                            Surname = "Yıldırım",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)2
                         });
@@ -199,18 +223,74 @@ namespace BaumKantin.Repository.Migrations
 
                     b.Property<string>("Floor")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Number")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Floor");
+
+                    b.HasIndex("Id");
+
+                    b.HasIndex("Number");
+
                     b.ToTable("Rooms", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Floor = "1",
+                            Number = "206",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Floor = "2",
+                            Number = "Seminer Odası",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Floor = "1",
+                            Number = "208",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Floor = "1",
+                            Number = "207",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Floor = "1",
+                            Number = "209",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Floor = "2",
+                            Number = "306",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("BaumKantin.Core.Customer", b =>
