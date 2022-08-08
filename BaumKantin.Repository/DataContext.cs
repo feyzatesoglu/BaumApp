@@ -53,19 +53,19 @@ namespace BaumKantin.Repository
 
                 entity.HasIndex(e => e.ImageId);
 
-                //entity.HasIndex(e => e.RoomId);
+                entity.HasIndex(e => e.RoomId);
 
                 entity.HasIndex(e => e.UserTypeEnum);
 
             });
-            builder.Entity<Customer>().HasData(new Customer() { Id = 1, Name = "Harun", Surname = "Bozacı", Phone = "8564528", IdentityId = 1, /*RoomId = 206,*/ ImageId = 8, UserTypeEnum = UserType.Intern });
-            builder.Entity<Customer>().HasData(new Customer() { Id = 2, Name = "Sude", Surname = "Akkaya", Phone = "9564875", IdentityId = 2, /*RoomId = 206,*/ ImageId = 5, UserTypeEnum = UserType.Intern });
-            builder.Entity<Customer>().HasData(new Customer() { Id = 3, Name = "Feyza", Surname = "Ateşoğlu", Phone = "2536984", IdentityId = 3,/* RoomId = 206,*/ ImageId = 2, UserTypeEnum = UserType.Intern });
-            builder.Entity<Customer>().HasData(new Customer() { Id = 4, Name = "Emre", Surname = "Işın", Phone = "2056984", IdentityId = 4, /*RoomId = 210,*/ ImageId = 3, UserTypeEnum = UserType.Admin });
-            builder.Entity<Customer>().HasData(new Customer() { Id = 5, Name = "Ekrem", Surname = "Ateş", Phone = "6542514", IdentityId = 5, /*RoomId = 208,*/ ImageId = 1, UserTypeEnum = UserType.Worker });
-            builder.Entity<Customer>().HasData(new Customer() { Id = 6, Name = "Ayça", Surname = "Renkli", Phone = "6852574", IdentityId = 6, /*RoomId = 208,*/ ImageId = 4, UserTypeEnum = UserType.Worker });
-            builder.Entity<Customer>().HasData(new Customer() { Id = 7, Name = "Ahmet", Surname = "Aydın", Phone = "6852574", IdentityId = 7, /*RoomId = 208,*/ ImageId = 12, UserTypeEnum = UserType.Worker });
-            builder.Entity<Customer>().HasData(new Customer() { Id = 8, Name = "Kerem", Surname = "Yıldırım", Phone = "6852574", IdentityId = 8, /*RoomId = 208,*/ ImageId = 14, UserTypeEnum = UserType.Worker });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 1, Name = "Harun", Surname = "Bozacı", Phone = "8564528", IdentityId = 1, RoomId = 1, ImageId = 8, UserTypeEnum = UserType.Intern });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 2, Name = "Sude", Surname = "Akkaya", Phone = "9564875", IdentityId = 2, RoomId = 2, ImageId = 5, UserTypeEnum = UserType.Intern });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 3, Name = "Feyza", Surname = "Ateşoğlu", Phone = "2536984", IdentityId = 3, RoomId = 3, ImageId = 2, UserTypeEnum = UserType.Intern });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 4, Name = "Emre", Surname = "Işın", Phone = "2056984", IdentityId = 4, RoomId = 1, ImageId = 3, UserTypeEnum = UserType.Admin });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 5, Name = "Ekrem", Surname = "Ateş", Phone = "6542514", IdentityId = 5, RoomId = 2, ImageId = 1, UserTypeEnum = UserType.Worker });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 6, Name = "Ayça", Surname = "Renkli", Phone = "6852574", IdentityId = 6, RoomId = 3, ImageId = 4, UserTypeEnum = UserType.Worker });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 7, Name = "Ahmet", Surname = "Aydın", Phone = "6852574", IdentityId = 7, RoomId = 4, ImageId = 12, UserTypeEnum = UserType.Worker });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 8, Name = "Kerem", Surname = "Yıldırım", Phone = "6852574", IdentityId = 8, RoomId = 5, ImageId = 14, UserTypeEnum = UserType.Worker });
             base.OnModelCreating(builder);
         }
         public override int SaveChanges()

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaumKantin.Repository.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220807195038_MigDataAdding")]
-    partial class MigDataAdding
+    [Migration("20220808075426_migS")]
+    partial class migS
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,6 +91,7 @@ namespace BaumKantin.Repository.Migrations
                             ImageId = 8,
                             Name = "Harun",
                             Phone = "8564528",
+                            RoomId = 206,
                             Surname = "Bozacı",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)1
@@ -103,6 +104,7 @@ namespace BaumKantin.Repository.Migrations
                             ImageId = 5,
                             Name = "Sude",
                             Phone = "9564875",
+                            RoomId = 206,
                             Surname = "Akkaya",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)1
@@ -115,6 +117,7 @@ namespace BaumKantin.Repository.Migrations
                             ImageId = 2,
                             Name = "Feyza",
                             Phone = "2536984",
+                            RoomId = 206,
                             Surname = "Ateşoğlu",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)1
@@ -127,6 +130,7 @@ namespace BaumKantin.Repository.Migrations
                             ImageId = 3,
                             Name = "Emre",
                             Phone = "2056984",
+                            RoomId = 210,
                             Surname = "Işın",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)0
@@ -139,6 +143,7 @@ namespace BaumKantin.Repository.Migrations
                             ImageId = 1,
                             Name = "Ekrem",
                             Phone = "6542514",
+                            RoomId = 208,
                             Surname = "Ateş",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)2
@@ -151,6 +156,7 @@ namespace BaumKantin.Repository.Migrations
                             ImageId = 4,
                             Name = "Ayça",
                             Phone = "6852574",
+                            RoomId = 208,
                             Surname = "Renkli",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)2
@@ -163,6 +169,7 @@ namespace BaumKantin.Repository.Migrations
                             ImageId = 12,
                             Name = "Ahmet",
                             Phone = "6852574",
+                            RoomId = 208,
                             Surname = "Aydın",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)2
@@ -175,6 +182,7 @@ namespace BaumKantin.Repository.Migrations
                             ImageId = 14,
                             Name = "Kerem",
                             Phone = "6852574",
+                            RoomId = 208,
                             Surname = "Yıldırım",
                             UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserTypeEnum = (byte)2
